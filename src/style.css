@@ -1,0 +1,131 @@
+* {
+    margin: 0; padding: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    background: #FFE16E;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ball {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 0;
+    margin-top: 100px;
+}
+
+.ball::after {
+    content:'';
+    position: absolute;
+    display: block;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0 -8px 0 0 rgba(0, 0, 0, 0.2);
+    background: #6E64F0;
+    z-index: 1;
+    animation: bounce 400ms infinite alternate;
+}
+
+.ball::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(0,0,0, 0.05);
+    animation: bounce-shadow 400ms infinite alternate; 
+    z-index: -10;
+}
+
+
+@keyframes bounce {
+    from {
+      transform: scale(2);
+      animation-timing-function: ease-in;
+    }
+    to {
+      transform: scale(0.8);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    }
+  }
+  
+  @keyframes bounce-shadow {
+    from {
+      transform: scale(2.5, 2.6) translateY(-50%);
+      animation-timing-function: ease-in;
+    }
+    to {
+      transform: scale(0.5) translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    }
+  }
+
+  .dog {
+      width: 100px;
+      height: 100px;
+      z-index: 1;
+      border: 1px solid red;
+      position: relative;
+      margin-top: 100px;
+  }
+
+  .dog::before {
+      content:'';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: rgba(0,0,0, 0.03);
+      transform: translateY(-30%) scale(1.5); 
+  }
+
+  .dog-body {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: -50%;
+      border: 1px solid blue;
+      animation: dog-body 200ms ease-in-out infinite alternate;
+  }
+
+  .dog-body::before {
+      content:'';
+      position: absolute;
+      bottom: 90%;
+      right: 50%;
+      width: 90%;
+      height: 90%;
+      border: 1px solid green;
+      border-top-left-radius: 100%;
+      border-bottom-left-radius: 10%;
+      border-top-right-radius: 10%;
+      background: rgba(255,255,255, 0.4);
+  }
+
+  @keyframes dog-body {
+    from {
+      transform: translateX(-10%);
+    }
+    to {
+      transform: translateX(10%);
+    }
+}
+
