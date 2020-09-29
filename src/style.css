@@ -194,6 +194,7 @@ body {
 
 /* tongue */
 .dog-tongue {
+  position: absolute;
   width: 40px;
   height: 100%;
   left: calc(50% - 20px);
@@ -249,7 +250,7 @@ body {
   border-top-right-radius: 10%;
   background: rgba(255, 255, 255, 0.4);
   transform-origin: right bottom;
-  animation: dog-tail-blur 200ms ease-in-out infinite alternate both;
+  animation: dog-tail-blur 200ms 33.33ms ease-in-out infinite alternate both;
 }
 
 /* ball */
