@@ -83,3 +83,16 @@
     transform: rotate(0);
   }
 }
+
+@keyframes dog-eye {
+  from,
+  to {
+    animation-timing-function: step-end;
+    opacity: 1;
+  }
+  50%,
+  55% {
+    animation-timing-function: step-start;
+    opacity: 0;
+  }
+}
